@@ -1,0 +1,9 @@
+modbus:
+  - name: "brdg"
+    delay: 2
+    message_wait_milliseconds: 10
+    timeout: 3
+    type: tcp
+    host: 192.168.1.83
+    port: 502
+    sensors: !include configuration/modbus/wtw.yaml
