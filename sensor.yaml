@@ -1,0 +1,142 @@
+  - sensor:
+      # Sensor 1: Bypass Position
+      - name: "WTW Bypass friendly"
+        unique_id: wtw_bypass_friendly
+        state: >
+          {% set mapper = {
+            '0': 'Off',
+            '1': 'On'
+          } %}
+          {% set val = states('sensor.bypass_position') %}
+          {{ mapper.get(val, 'Unknown') }}
+
+      # Sensor 2: Error Codes
+      - name: "WTW Sensor error code friendly"
+        unique_id: wtw_sensor_error_code_friendly
+        state: >
+          {% set mapper = {
+            '0': 'No Fault',
+            '1': 'Nonspecific fault',
+            '2': 'Emergency stop',
+            '3': 'Fan 1 supply error',
+            '4': 'X22 sensor error',
+            '5': 'X23 sensor error',
+            '6': 'X21 sensor error',
+            '7': 'X20 sensor error',
+            '8': 'Fan 2 error',
+            '254': '254 Binding mode active',
+            '255': '255 Device identification active'
+          } %}
+          {% set val = states('sensor.error_code') %}
+          {{ mapper.get(val, 'Unknown') }}
+          
+      - name: "WTW Ventilation speed friendly"
+        unique_id: wtw_ventilation_speed_friendly
+        state: >
+          {% set mapper = {
+            '0': 'Off',
+            '1': 'Speed 1 LOW',
+            '2': 'Speed 2 MEDIUM',
+            '3': 'Speed 3 HIGH',
+            '11': 'Auto',
+            '12': 'Auto',
+            '13': 'Boost',
+            '21': 'Away',
+            '23': 'Boost',
+            '24': 'Auto'
+          } %}
+          {% set current_state = states('sensor.requested_system_ventilation_speed') %}
+          {{ mapper.get(current_state, 'Unknown') }}
+
+      - name: "WTW Fault status bound products friendly"
+        unique_id: wtw_fault_status_bound_products_friendly
+        state: >
+          {% set mapper = {
+            '0': 'No active faults',
+            '1': 'One or more faults active in product'
+          } %}
+          {% set current_state = states('sensor.fault_status_bound_products') %}
+          {{ mapper.get(current_state, 'Unknown') }}
+
+  - sensor:
+      - name: "WTW Bypass status friendly"
+        unique_id: wtw_bypass_status_mapped
+        state: >
+          {% set val = states('sensor.bypass_status') | int(default=-1) %}
+          {% if val == -1 %}
+            Unknown
+          {% elif val >= 0 and val <= 100 %}
+            {{ val }}%
+          {% elif val == 239 %} {# EFh #}
+            Not available
+          {% elif val == 240 %} {# F0h #}
+            Actuator Open Circuit
+          {% elif val == 241 %} {# F1h #}
+            Actuator Short Circuit
+          {% elif val == 242 %} {# F2h #}
+            Not available Error
+          {% elif val == 253 %} {# FDh #}
+            Damper/Valve Jam
+          {% elif val == 254 %} {# FEh #}
+            Actuator Jam
+          {% elif val == 255 %} {# FFh #}
+            Non-specified fault
+          {% else %}
+            Unknown ({{ val }})
+          {% endif %}
+        icon: >
+          {% set val = states('sensor.bypass_status') | int(default=-1) %}
+          {% if val >= 239 %}
+            mdi:alert-circle
+          {% elif val == 0 %}
+            mdi:valve-closed
+          {% elif val == 100 %}
+            mdi:valve-open
+          {% else %}
+            mdi:valve
+          {% endif %}
+        attributes:
+          raw_hex: "{{ '%02X' | format(states('sensor.bypass_status') | int(default=0)) }}"
+
+  - sensor:
+      - name: "WTW Bypass Mode friendly"
+        unique_id: wtw_bypass_mode_mapped
+        state: >
+          {% set val = states('sensor.bypass_mode') | int(default=-1) %}
+          {% if val == 0 %}
+            Manual closed (0%)
+          {% elif val == 100 %}
+            Manual open (100%)
+          {% elif val == 255 %} {# FFh #}
+            Auto
+          {% else %}
+            Unknown ({{ val }})
+          {% endif %}
+        icon: >
+          {% set val = states('sensor.bypass_mode') | int(default=-1) %}
+          {% if val == 255 %}
+            mdi:brightness-auto
+          {% elif val == 0 or val == 100 %}
+            mdi:hand-back-right
+          {% else %}
+            mdi:help-circle-outline
+          {% endif %}
+        attributes:
+          mode_code: "{{ 'Auto' if states('sensor.bypass_mode') | int == 255 else 'Manual' }}"
+          
+  - sensor:
+      - name: "WTW Ventilation speed friendly"
+        unique_id: wtw_ventilation_speed_friendly
+        state: >
+          {% set mapper = {
+            '0': 'Away',
+            '1': 'Speed 1 LOW',
+            '2': 'Speed 2 NOMINAL',
+            '3': 'Speed 3 HIGH',
+            '4': 'Auto',
+            '5': 'Auto',
+            '6': 'Boost',
+            '7': 'Off'
+          } %}
+          {% set state = states('sensor.requested_system_ventilation_speed') %}
+          {{ mapper.get(state, 'Unknown') }}
