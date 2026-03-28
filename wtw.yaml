@@ -1,0 +1,262 @@
+- name: "Actual binding status"
+  device_address: 2
+  address: 43900
+  input_type: holding
+  data_type: uint16
+
+- name: "RF Communication status"
+  device_address: 2
+  address: 40101
+  input_type: holding
+  data_type: uint16
+
+- name: "Fault status bound products"
+  device_address: 2
+  address: 40103
+  input_type: holding
+  data_type: uint16
+
+- name: "RF node info last seen"
+  unit_of_measurement: "s"
+  device_address: 2
+  address: 40100
+  input_type: holding
+  data_type: uint16
+
+- name: "Actual ventilation fan speed"
+  unit_of_measurement: "%"
+  device_address: 2
+  address: 41000
+  input_type: holding
+  data_type: uint16
+
+- name: "Actual exhaust fan speed"
+  unit_of_measurement: "%"
+  device_address: 2
+  address: 41001
+  input_type: holding
+  data_type: uint16
+
+- name: "Actual inlet fan speed"
+  unit_of_measurement: "%"
+  device_address: 2
+  address: 41002
+  input_type: holding
+  data_type: uint16
+
+- name: "Error code"
+  device_address: 2
+  address: 41003
+  input_type: holding
+  data_type: uint16
+
+- name: "Indoor temperature"
+  unit_of_measurement: °C
+  device_address: 2
+  address: 41005
+  input_type: holding
+  data_type: float32
+  swap: word
+
+- name: "Outdoor temperature"
+  unit_of_measurement: °C
+  device_address: 2
+  address: 41007
+  input_type: holding
+  data_type: float32
+  swap: word
+
+- name: "Exhaust temperature"
+  unit_of_measurement: °C
+  device_address: 2
+  address: 41009
+  input_type: holding
+  data_type: float32
+  swap: word
+
+- name: "Supply temperature"
+  unit_of_measurement: °C
+  device_address: 2
+  address: 41009
+  input_type: holding
+  data_type: float32
+  swap: word
+
+- name: "Filter dirty"
+  device_address: 2
+  address: 41014
+  input_type: holding
+  data_type: uint16
+
+- name: "Filter time remaining"
+  unit_of_measurement: days
+  device_address: 2
+  address: 41040
+  input_type: holding
+  data_type: uint16
+
+- name: "Filter time percentage"
+  unit_of_measurement: "%"
+  device_address: 2
+  address: 41042
+  input_type: holding
+  data_type: uint16
+
+- name: "Bypass position"
+  device_address: 2
+  address: 41016
+  input_type: holding
+  data_type: uint16
+
+- name: "Bypass status"
+  device_address: 2
+  address: 41051
+  input_type: holding
+  data_type: uint16
+
+- name: "Bypass mode"
+  device_address: 2
+  address: 41550
+  input_type: holding
+  data_type: uint16
+
+- name: "Indoor humidity"
+  unit_of_measurement: "%"
+  device_address: 2
+  address: 41017
+  input_type: holding
+  data_type: uint16
+
+- name: "Outoor humidity"
+  unit_of_measurement: "%"
+  device_address: 2
+  address: 41018
+  input_type: holding
+  data_type: uint16
+
+- name: "Outlet flow level"
+  unit_of_measurement: "m³/h" 
+  device_address: 2
+  address: 41021
+  input_type: holding
+  data_type: float32
+  swap: word
+
+- name: "Requested system ventilation speed"
+  device_address: 2
+  address: 41000
+  input_type: holding
+  data_type: uint16
+
+- name: "Fault status"
+  device_address: 2
+  address: 41003
+  input_type: holding
+  data_type: uint16
+
+- name: "Remaining time temporary override"
+  unit_of_measurement: "min" 
+  device_address: 2
+  address: 41004
+  input_type: holding
+  data_type: uint16
+
+- name: "Defrost"
+  device_address: 2
+  address: 41015
+  input_type: holding
+  data_type: uint16
+
+- name: "Ventiliation speed capable bits"
+  device_address: 2
+  address: 41027
+  input_type: holding
+  data_type: uint16
+
+- name: "Ventilation RPM exhaust"
+  unit_of_measurement: "RPM" 
+  device_address: 2
+  address: 41043
+  input_type: holding
+  data_type: uint16
+
+- name: "Ventilation RPM supply"
+  unit_of_measurement: "RPM" 
+  device_address: 2
+  address: 41044
+  input_type: holding
+  data_type: uint16
+
+- name: "Standby speed supply"
+  unit_of_measurement: "%" 
+  device_address: 2
+  address: 42001
+  input_type: holding
+  data_type: uint16
+
+- name: "Standby speed exhaust"
+  unit_of_measurement: "%" 
+  device_address: 2
+  address: 42002
+  input_type: holding
+  data_type: uint16
+
+- name: "Low speed supply"
+  unit_of_measurement: "%" 
+  device_address: 2
+  address: 42003
+  input_type: holding
+  data_type: uint16
+
+- name: "Low speed exhaust"
+  unit_of_measurement: "%" 
+  device_address: 2
+  address: 42004
+  input_type: holding
+  data_type: uint16
+
+- name: "Medium speed supply"
+  unit_of_measurement: "%" 
+  device_address: 2
+  address: 42005
+  input_type: holding
+  data_type: uint16
+
+- name: "Medium speed exhaust"
+  unit_of_measurement: "%" 
+  device_address: 2
+  address: 42006
+  input_type: holding
+  data_type: uint16
+
+- name: "High speed supply"
+  unit_of_measurement: "%" 
+  device_address: 2
+  address: 42004
+  input_type: holding
+  data_type: uint16
+
+- name: "High speed exhaust"
+  unit_of_measurement: "%" 
+  device_address: 2
+  address: 42008
+  input_type: holding
+  data_type: uint16
+
+- name: "Switch point auto RH"
+  device_address: 2
+  address: 49016
+  input_type: holding
+  data_type: uint16
+
+- name: "Switch point auto CO2"
+  device_address: 2
+  address: 49017
+  input_type: holding
+  data_type: uint16
+
+- name: "Switch point auto temperature"
+  device_address: 2
+  address: 49017
+  input_type: holding
+  data_type: uint16
