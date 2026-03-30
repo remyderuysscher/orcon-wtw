@@ -257,6 +257,6 @@
 
 - name: "Switch point auto temperature"
   device_address: 2
-  address: 49017
+  address: 49019
   input_type: holding
   data_type: uint16
