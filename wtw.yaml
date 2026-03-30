@@ -77,7 +77,7 @@
 - name: "Supply temperature"
   unit_of_measurement: "°C"
   device_address: 2
-  address: 41009
+  address: 41011
   input_type: holding
   data_type: float32
   swap: word
