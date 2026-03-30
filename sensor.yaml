@@ -1,5 +1,4 @@
   - sensor:
-      # Sensor 1: Bypass Position
       - name: "WTW Bypass friendly"
         unique_id: wtw_bypass_friendly
         state: >
@@ -10,7 +9,6 @@
           {% set val = states('sensor.bypass_position') %}
           {{ mapper.get(val, 'Unknown') }}
 
-      # Sensor 2: Error Codes
       - name: "WTW Sensor error code friendly"
         unique_id: wtw_sensor_error_code_friendly
         state: >
@@ -126,7 +124,7 @@
           
   - sensor:
       - name: "WTW Ventilation speed friendly"
-        unique_id: wtw_ventilation_speed_friendly
+        unique_id: wtw_ventilation_speed_friendly_mapped
         state: >
           {% set mapper = {
             '0': 'Away',
