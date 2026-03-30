@@ -51,7 +51,7 @@
   data_type: uint16
 
 - name: "Indoor temperature"
-  unit_of_measurement: °C
+  unit_of_measurement: "°C"
   device_address: 2
   address: 41005
   input_type: holding
@@ -59,7 +59,7 @@
   swap: word
 
 - name: "Outdoor temperature"
-  unit_of_measurement: °C
+  unit_of_measurement: "°C"
   device_address: 2
   address: 41007
   input_type: holding
@@ -67,7 +67,7 @@
   swap: word
 
 - name: "Exhaust temperature"
-  unit_of_measurement: °C
+  unit_of_measurement: "°C"
   device_address: 2
   address: 41009
   input_type: holding
@@ -75,7 +75,7 @@
   swap: word
 
 - name: "Supply temperature"
-  unit_of_measurement: °C
+  unit_of_measurement: "°C"
   device_address: 2
   address: 41009
   input_type: holding
@@ -249,7 +249,7 @@
   input_type: holding
   data_type: uint16
 
-- name: "Switch point auto CO2"
+- name: "Switch point auto CO₂"
   device_address: 2
   address: 49017
   input_type: holding
